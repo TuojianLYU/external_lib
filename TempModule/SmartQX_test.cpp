@@ -52,8 +52,7 @@ const SCFB_FBInstanceData FORTE_SmartQX_test::scm_astInternalFBs[] = {
   {g_nStringIdF_STRING_TO_WSTRING, g_nStringIdF_STRING_TO_WSTRING},
   {g_nStringIdAPPEND_STRING_5, g_nStringIdAPPEND_STRING_3},
   {g_nStringIdMODE, g_nStringIdMODE},
-  {g_nStringIdQX, g_nStringIdQX},
-  {g_nStringIdMODE_1, g_nStringIdMODE}
+  {g_nStringIdQX, g_nStringIdQX}
 };
 
 const SCFB_FBParameter FORTE_SmartQX_test::scm_astParamters[] = {
@@ -75,16 +74,14 @@ const SCFB_FBConnectionData FORTE_SmartQX_test::scm_astEventConnections[] = {
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdBOOL2BOOL, g_nStringIdCNF), 1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE, g_nStringIdREQ), 8},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE, g_nStringIdCNF_OPCUA), 8, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_1, g_nStringIdREQ), 0},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE, g_nStringIdCNF_PIN), 8, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdQX, g_nStringIdREQ), 9},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE_1, g_nStringIdCNF_OPCUA), 10, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_1, g_nStringIdINIT), 0},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE_1, g_nStringIdCNF_PIN), 10, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_1, g_nStringIdINIT), 0},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdF_STRING_TO_WSTRING, g_nStringIdCNF), 6, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE_1, g_nStringIdREQ), 10},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_1, g_nStringIdCNF), 0, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdCNF), -1},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_1, g_nStringIdINITO), 0, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdINITO), -1},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdF_STRING_TO_WSTRING, g_nStringIdCNF), 6, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_1, g_nStringIdINIT), 0},
 };
 
 const SCFB_FBFannedOutConnectionData FORTE_SmartQX_test::scm_astFannedOutEventConnections[] = {
   {9, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_1, g_nStringIdREQ), 0},
-  {11, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdQX, g_nStringIdINIT), 9},
+  {12, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdQX, g_nStringIdINIT), 9},
 };
 
 const SCFB_FBConnectionData FORTE_SmartQX_test::scm_astDataConnections[] = {
@@ -106,15 +103,14 @@ const SCFB_FBConnectionData FORTE_SmartQX_test::scm_astDataConnections[] = {
 
 const SCFB_FBFannedOutConnectionData FORTE_SmartQX_test::scm_astFannedOutDataConnections[] = {
   {0, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdQX, g_nStringIdOUT), 9},
-  {11, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE_1, g_nStringIdMODE), 10},
 };
 
 const SCFB_FBNData FORTE_SmartQX_test::scm_stFBNData = {
-  11, scm_astInternalFBs,
-  15, scm_astEventConnections,
+  10, scm_astInternalFBs,
+  13, scm_astEventConnections,
   2, scm_astFannedOutEventConnections,
   14, scm_astDataConnections,
-  2, scm_astFannedOutDataConnections,
+  1, scm_astFannedOutDataConnections,
   5, scm_astParamters
 };
 
