@@ -61,6 +61,7 @@ const SCFB_FBParameter FORTE_SmartQX_test::scm_astParamters[] = {
   {4, g_nStringIdIN, "opc_ua[WRITE;opc.tcp://"},
   {5, g_nStringIdIN, "]"},
   {9, g_nStringIdQI, "1"},
+  {9, g_nStringIdPARAMS, "7"},
 };
 
 const SCFB_FBConnectionData FORTE_SmartQX_test::scm_astEventConnections[] = {
@@ -94,11 +95,11 @@ const SCFB_FBConnectionData FORTE_SmartQX_test::scm_astDataConnections[] = {
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdSTRING2STRING_2, g_nStringIdOUT), 3, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdAPPEND_STRING_3, g_nStringIdIN_3), 2},
   {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdOPC_Address), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdAPPEND_STRING_3, g_nStringIdIN_2), 2},
   {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdOPC_Variable), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdAPPEND_STRING_5, g_nStringIdIN_2), 7},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdF_STRING_TO_WSTRING, g_nStringIdOUT), 6, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_1, g_nStringIdID), 0},
-  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE, g_nStringIdOUT1), 8, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdQX, g_nStringIdPARAMS), 9},
   {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdMODE), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE, g_nStringIdMODE), 8},
   {GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdIO), -1, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE, g_nStringIdPIN), 8},
   {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_1, g_nStringIdQO), 0, GENERATE_CONNECTION_PORT_ID_1_ARG(g_nStringIdQO), -1},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdF_STRING_TO_WSTRING, g_nStringIdOUT), 6, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE, g_nStringIdOPCUA), 8},
+  {GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdMODE, g_nStringIdOUT), 8, GENERATE_CONNECTION_PORT_ID_2_ARG(g_nStringIdCLIENT_1_1, g_nStringIdID), 0},
 };
 
 const SCFB_FBFannedOutConnectionData FORTE_SmartQX_test::scm_astFannedOutDataConnections[] = {
@@ -111,7 +112,7 @@ const SCFB_FBNData FORTE_SmartQX_test::scm_stFBNData = {
   2, scm_astFannedOutEventConnections,
   14, scm_astDataConnections,
   1, scm_astFannedOutDataConnections,
-  5, scm_astParamters
+  6, scm_astParamters
 };
 
 
