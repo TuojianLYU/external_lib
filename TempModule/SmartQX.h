@@ -3,14 +3,14 @@
  ***
  *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x NG!
  ***
- *** Name: SmartIX
+ *** Name: SmartQX
  *** Description: Composite FB wrapping other FBs
  *** Version:
 ***     1.0: 2021-11-07/Tuojian Lyu -  - 
  *************************************************************************/
 
-#ifndef _SMARTIX_H_
-#define _SMARTIX_H_
+#ifndef _SMARTQX_H_
+#define _SMARTQX_H_
 
 #include "cfb.h"
 #include "typelib.h"
@@ -20,8 +20,8 @@
 #include "forte_array_at.h"
 
 
-class FORTE_SmartIX: public CCompositeFB {
-  DECLARE_FIRMWARE_FB(FORTE_SmartIX)
+class FORTE_SmartQX: public CCompositeFB {
+  DECLARE_FIRMWARE_FB(FORTE_SmartQX)
 
 private:
   static const CStringDictionary::TStringId scm_anDataInputNames[];
@@ -71,21 +71,25 @@ private:
     return *static_cast<CIEC_STRING*>(getDI(3));
   }
   
+  CIEC_BOOL &st_OUT() {
+    return *static_cast<CIEC_BOOL*>(getDI(4));
+  }
+  
   CIEC_BOOL &st_QO() {
     return *static_cast<CIEC_BOOL*>(getDO(0));
   }
   
 
-  FORTE_FB_DATA_ARRAY(2, 4, 1, 0);
+  FORTE_FB_DATA_ARRAY(2, 5, 1, 0);
 
 public:
-  FORTE_SmartIX(const CStringDictionary::TStringId pa_nInstanceNameId, CResource *pa_poSrcRes) :
+  FORTE_SmartQX(const CStringDictionary::TStringId pa_nInstanceNameId, CResource *pa_poSrcRes) :
       CCompositeFB(pa_poSrcRes, &scm_stFBInterfaceSpec, pa_nInstanceNameId, &scm_stFBNData, m_anFBConnData, m_anFBVarsData) {
   };
 
-  virtual ~FORTE_SmartIX() = default;
+  virtual ~FORTE_SmartQX() = default;
 };
 
-#endif // _SMARTIX_H_
+#endif // _SMARTQX_H_
 
 

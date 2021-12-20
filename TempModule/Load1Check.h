@@ -3,25 +3,22 @@
  ***
  *** This file was generated using the 4DIAC FORTE Export Filter V1.0.x NG!
  ***
- *** Name: SmartIX
- *** Description: Composite FB wrapping other FBs
+ *** Name: Load1Check
+ *** Description: Template for a Basic Function Block Type
  *** Version:
-***     1.0: 2021-11-07/Tuojian Lyu -  - 
+***     1.0: 2021-07-29/Tuojian Lyu -  - 
  *************************************************************************/
 
-#ifndef _SMARTIX_H_
-#define _SMARTIX_H_
+#ifndef _LOAD1CHECK_H_
+#define _LOAD1CHECK_H_
 
-#include "cfb.h"
-#include "typelib.h"
+#include "basicfb.h"
 #include "forte_bool.h"
-#include "forte_string.h"
-#include "forte_wstring.h"
 #include "forte_array_at.h"
 
 
-class FORTE_SmartIX: public CCompositeFB {
-  DECLARE_FIRMWARE_FB(FORTE_SmartIX)
+class FORTE_Load1Check: public CBasicFB {
+  DECLARE_FIRMWARE_FB(FORTE_Load1Check)
 
 private:
   static const CStringDictionary::TStringId scm_anDataInputNames[];
@@ -47,28 +44,17 @@ private:
 
   static const SFBInterfaceSpec scm_stFBInterfaceSpec;
 
-  static const SCFB_FBInstanceData scm_astInternalFBs[];
-  static const SCFB_FBParameter scm_astParamters[];
-  static const SCFB_FBConnectionData scm_astEventConnections[];
-  static const SCFB_FBFannedOutConnectionData scm_astFannedOutEventConnections[];
-  static const SCFB_FBConnectionData scm_astDataConnections[];
-  static const SCFB_FBFannedOutConnectionData scm_astFannedOutDataConnections[];
-  static const SCFB_FBNData scm_stFBNData;
-
-  CIEC_BOOL &st_MODE() {
+virtual void setInitialValues();
+  CIEC_BOOL &st_AtTrans1() {
     return *static_cast<CIEC_BOOL*>(getDI(0));
   }
   
-  CIEC_WSTRING &st_OPC_Variable() {
-    return *static_cast<CIEC_WSTRING*>(getDI(1));
+  CIEC_BOOL &st_AtEntry1() {
+    return *static_cast<CIEC_BOOL*>(getDI(1));
   }
   
-  CIEC_WSTRING &st_OPC_Address() {
-    return *static_cast<CIEC_WSTRING*>(getDI(2));
-  }
-  
-  CIEC_STRING &st_IO() {
-    return *static_cast<CIEC_STRING*>(getDI(3));
+  CIEC_BOOL &st_TransLeft() {
+    return *static_cast<CIEC_BOOL*>(getDI(2));
   }
   
   CIEC_BOOL &st_QO() {
@@ -76,16 +62,26 @@ private:
   }
   
 
-  FORTE_FB_DATA_ARRAY(2, 4, 1, 0);
+  void alg_updateAlg(void);
+
+  static const TForteInt16 scm_nStateSTART = 0;
+  static const TForteInt16 scm_nStateWork = 1;
+  
+  void enterStateSTART(void);
+  void enterStateWork(void);
+
+  virtual void executeEvent(int pa_nEIID);
+
+  FORTE_BASIC_FB_DATA_ARRAY(2, 3, 1, 0, 0);
 
 public:
-  FORTE_SmartIX(const CStringDictionary::TStringId pa_nInstanceNameId, CResource *pa_poSrcRes) :
-      CCompositeFB(pa_poSrcRes, &scm_stFBInterfaceSpec, pa_nInstanceNameId, &scm_stFBNData, m_anFBConnData, m_anFBVarsData) {
+  FORTE_Load1Check(CStringDictionary::TStringId pa_nInstanceNameId, CResource *pa_poSrcRes) :
+      CBasicFB(pa_poSrcRes, &scm_stFBInterfaceSpec, pa_nInstanceNameId, nullptr, m_anFBConnData, m_anFBVarsData) {
   };
 
-  virtual ~FORTE_SmartIX() = default;
+  virtual ~FORTE_Load1Check() = default;
 };
 
-#endif // _SMARTIX_H_
+#endif // _LOAD1CHECK_H_
 
 
