@@ -57,6 +57,15 @@ void FORTE_Load1Check::alg_updateAlg(void) {
   }
 }
 
+void FORTE_Load1Check::alg_updateAlg_1(void) {
+  if((true == st_TransLeft())) {
+  	st_QO() = false;
+  }
+  else {
+  	st_QO() = true;
+  }
+}
+
 
 void FORTE_Load1Check::enterStateSTART(void) {
   m_nECCState = scm_nStateSTART;
@@ -64,7 +73,7 @@ void FORTE_Load1Check::enterStateSTART(void) {
 
 void FORTE_Load1Check::enterStateWork(void) {
   m_nECCState = scm_nStateWork;
-  alg_updateAlg();
+  alg_updateAlg_1();
   sendOutputEvent(scm_nEventCNFID);
 }
 

@@ -63,6 +63,7 @@ virtual void setInitialValues();
   
 
   void alg_updateAlg(void);
+  void alg_updateAlg_1(void);
 
   static const TForteInt16 scm_nStateSTART = 0;
   static const TForteInt16 scm_nStateWork = 1;
