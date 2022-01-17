@@ -49,11 +49,11 @@ virtual void setInitialValues();
     return *static_cast<CIEC_BOOL*>(getDI(0));
   }
   
-  CIEC_BOOL &st_AtTrans1() {
+  CIEC_BOOL &st_Load1() {
     return *static_cast<CIEC_BOOL*>(getDI(1));
   }
   
-  CIEC_BOOL &st_TransLeft() {
+  CIEC_BOOL &st_AtTrans2() {
     return *static_cast<CIEC_BOOL*>(getDI(2));
   }
   

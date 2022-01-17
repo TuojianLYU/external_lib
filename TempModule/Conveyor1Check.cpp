@@ -17,7 +17,7 @@
 
 DEFINE_FIRMWARE_FB(FORTE_Conveyor1Check, g_nStringIdConveyor1Check)
 
-const CStringDictionary::TStringId FORTE_Conveyor1Check::scm_anDataInputNames[] = {g_nStringIdAtEntry1, g_nStringIdAtTrans1, g_nStringIdTransLeft};
+const CStringDictionary::TStringId FORTE_Conveyor1Check::scm_anDataInputNames[] = {g_nStringIdAtEntry1, g_nStringIdLoad1, g_nStringIdAtTrans2};
 
 const CStringDictionary::TStringId FORTE_Conveyor1Check::scm_anDataInputTypeIds[] = {g_nStringIdBOOL, g_nStringIdBOOL, g_nStringIdBOOL};
 
@@ -50,8 +50,11 @@ void FORTE_Conveyor1Check::alg_Init(void) {
 }
 
 void FORTE_Conveyor1Check::alg_ALG1(void) {
-  if((((true == st_AtTrans1()) || (true == st_TransLeft())) && (st_AtEntry1() == false))) {
+  if((((true == st_AtTrans2()) && (false == st_AtEntry1())) || (false == st_Load1()))) {
   	st_QO() = false;
+  }
+  else if((true == st_AtEntry1())) {
+  	st_QO() = true;
   }
   else {
   	st_QO() = true;
